@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -18,9 +20,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
 
+  late DynamicLibrary _dl;
+
   @override
   void initState() {
     super.initState();
+    // _dl = DynamicLibrary.open("libonnxruntime.1.12.0.dylib");
     initPlatformState();
   }
 
