@@ -16,8 +16,16 @@ A new flutter plugin project.
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
   s.platform = :ios, '9.0'
+  # s.vendored_libraries = 'lib/*.dylib'
 
   # Flutter.framework does not contain a i386 slice.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.pod_target_xcconfig = { 
+     'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386', 'OTHER_LDFLAGS' => '$(inherited) -lonnxruntime.1.12.0 -lcustom_op_library  $(inherited)'
+  }
+  s.user_target_xcconfig = { 
+    'OTHER_LDFLAGS' => '-lonnxruntime.1.12.0 -lcustom_op_library  $(inherited)',
+    "LIBRARY_SEARCH_PATHS" => '"${PODS_ROOT}/../.symlinks/plugins/flutter_onnx/ios/lib"',
+ }
+
   s.swift_version = '5.0'
 end
