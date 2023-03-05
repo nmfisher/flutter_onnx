@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -25,7 +26,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    // _dl = DynamicLibrary.open("libonnxruntime.1.12.0.dylib");
+
+    _dl = DynamicLibrary.open(File(Platform.resolvedExecutable).parent.path +
+        "/lib/libonnxruntime.so.1.11.0");
     initPlatformState();
   }
 
