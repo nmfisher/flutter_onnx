@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_onnx/flutter_onnx.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,9 +25,10 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-
-    _dl = DynamicLibrary.open(File(Platform.resolvedExecutable).parent.path +
-        "/lib/libonnxruntime.so.1.11.0");
+    if (!Platform.isLinux) {
+      _dl = DynamicLibrary.open(File(Platform.resolvedExecutable).parent.path +
+          "/lib/libonnxruntime.so.1.11.0");
+    }
     initPlatformState();
   }
 
