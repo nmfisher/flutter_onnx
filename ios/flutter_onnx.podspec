@@ -23,7 +23,7 @@ A new flutter plugin project.
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 
      'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386', 
-     'OTHER_LDFLAGS' => '$(inherited) -lonnxruntime.1.12.0 -lcustom_op_library  $(inherited)',
+     'OTHER_LDFLAGS' => '$(inherited) -lonnxruntime.1.15.0 -lcustom_op_library  $(inherited)',
      "LIBRARY_SEARCH_PATHS" => '"${PODS_ROOT}/../.symlinks/plugins/flutter_onnx/ios/lib"',
      'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
      "USER_HEADER_SEARCH_PATHS" => '"${PODS_ROOT}/../.symlinks/plugins/flutter_onnx/ios/include" "$(inherited)"'
