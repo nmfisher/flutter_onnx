@@ -1,15 +1,12 @@
 # flutter_onnx
 
-A new flutter plugin project.
+A plugin project to hold the ONNX runtime (shared) libraries used across all Polyvox plugins.
 
-## Getting Started
+Currently compiled from ONNX Runtime v1.11.0
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## iOS
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Linux 
+./build.sh --include_ops_by_config ~/projects/polyvox/ml_models/viseme_prediction/output/encoder.disable.required_operators.config  --build_shared_lib --config Release
+
 
