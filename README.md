@@ -1,12 +1,21 @@
 # flutter_onnx
 
-A new flutter plugin project.
+Just a wrapper for the ONNX Runtime library we use in Polyvox.
+
 
 # Build
+(collect *.required_operators.config) >> /tmp/merged.config
+
+## Android
+
+./build.sh --include_ops_by_config /tmp/merged.config --config MinSizeRel --android --android_ndk_path=$(realpath ~/Android/Sdk/ndk/26.0.10792818) --android_sdk_path=$(realpath ~/Android/Sdk/)  --build_shared_lib --android_abi=arm64-v8a --compile_no_warning_as_error 
 
 ## iOS
 
-cat ../polyvox/flutter/wavlm_onnx/wavlm.disable.required_operators.config ../polyvox/flutter/polyvox_viseme_prediction/assets/encoder.disable.required_operators.config ../polyvox/flutter/flutter_tts_onnx/assets/lpcnet_large.disable.required_operators.config > /tmp/merged.config && ./build.sh --include_ops_by_config /tmp/merged.config --ios --config Release --apple_deploy_target 11.0 --use_xcode --ios_sysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
+ ./build.sh  --include_ops_by_config /tmp/merged.config  --config MinSizeRel --apple_deploy_target 12.0  --ios --ios_sysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk  --use_xcode  --skip_onnx_tests --build_apple_framework --use_coreml --path_to_protoc_exe /opt/homebrew/opt/protobuf@21/bin/protoc      
+
+# MacOS
+./build.sh  --include_ops_by_config /tmp/merged.config  --config Release --apple_deploy_target 12.0  --osx_arch arm64 --use_xcode  --skip_onnx_tests --build_apple_framework  --compile_no_warning_as_error
 
 
 ## Getting Started
