@@ -42,7 +42,12 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+        ndk {
+            
+        }
     }
+
+    ndkVersion "23.1.7779620" // e.g.,  ndkVersion "21.3.6528147"
 }
 
 dependencies {
