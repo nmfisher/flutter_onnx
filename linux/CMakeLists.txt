@@ -42,7 +42,7 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
 # This list could contain prebuilt libraries, or libraries created by an
 # external build triggered from this build file.
 set(flutter_onnx_bundled_libraries
-  "${CMAKE_CURRENT_SOURCE_DIR}/../linux/lib/libonnxruntime.so"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../linux/lib/libonnxruntime.so.1.11.0"
   "${CMAKE_CURRENT_SOURCE_DIR}/../linux/lib/libcustom_op_library.so"
   PARENT_SCOPE
 )
