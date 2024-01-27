@@ -1,7 +1,6 @@
 # flutter_onnx
 
-Just a wrapper for the ONNX Runtime library we use in Polyvox.
-
+Just a wrapper around the compiled ONNXRuntime libraries. Only making this public to help people use the flutter_sherpa_onnx repo. I use this repo for other internal projects, so the onnxruntime version/ONNX operators/build flags are specific to my needs; if you want to use your own version, you can hack flutter_sherpa_onnx to remove the dependency on this package and provide your own version.
 
 # Build
 (collect *.required_operators.config) >> /tmp/merged.config
